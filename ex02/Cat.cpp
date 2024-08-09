@@ -1,68 +1,68 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/06 22:36:41 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/09 22:20:20 by gabriel          ###   ########.fr       */
+/*   Created: 2024/08/06 22:40:39 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/09 22:21:03 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog(void)
+Cat::Cat(void) 
 {
-	this->_type ="dog";
+	this->_type ="cat";
 	this->_brain = new Brain();
-	std::cout << "Dog Default Constructor called." << std::endl;
+	std::cout << "Cat Default Constructor called." << std::endl;
 }
 
-Dog::Dog(Dog const &copy) : Animal()
+Cat::Cat(Cat const &copy) : Animal()
 {
 	this->_type = copy._type;
 	this->_brain = new Brain(*copy._brain);
-	std::cout << "Dog Copy Constructor called." << std::endl;
+	std::cout << "Cat Copy Constructor called." << std::endl;
 }
 
-Dog::~Dog(void)
+Cat::~Cat(void)
 {
 	delete this->_brain;
-	std::cout << "Dog Destructor called." << std::endl;
+	std::cout << "Cat Destructor called." << std::endl;
 }
 
-void	Dog::operator=(Dog const &dog)
+void	Cat::operator=(Cat const &cat)
 {
-	this->_type = dog._type;
+	this->_type = cat._type;
 	if ( this->_brain != NULL)
 		delete this->_brain;
-	this->_brain = new Brain(*dog._brain);
-	std::cout << "Dog Operator Equal called." << std::endl;
+	this->_brain = new Brain(*cat._brain);
+	std::cout << "Cat Operator Equal called." << std::endl;
 }
 
-void Dog::makeSound(void) const
+void Cat::makeSound(void) const
 {
-	std::cout << "BUP! BUP!" << std::endl;
+	std::cout << "Meu! Meu!" << std::endl;
 }
 
-void	Dog::addIdea(std::string idea)
+void	Cat::addIdea(std::string idea)
 {
 	if (this->_brain == NULL)
 	{
-		std::cout << "Dog: Error Brain is null." << std::endl;
+		std::cout << "Cat: Error Brain is null." << std::endl;
 		return ;
 	}
 	this->_brain->appendIdea(idea);
 }
 
-std::string	Dog::rememberIdea(size_t i)
+std::string	Cat::rememberIdea(size_t i)
 {
 	if (this->_brain == NULL)
 	{
-		std::cout << "Dog: Error Brain is null." << std::endl;
+		std::cout << "Cat: Error Brain is null." << std::endl;
 		return ("");
 	}
 	return (this->_brain->rememberIdea(i));

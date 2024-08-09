@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:40:39 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/08 21:20:31 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/09 22:16:32 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ Cat::~Cat(void)
 void	Cat::operator=(Cat const &cat)
 {
 	this->_type = cat._type;
+	if ( this->_brain != NULL)
+		delete this->_brain;
 	this->_brain = new Brain(*cat._brain);
 	std::cout << "Cat Operator Equal called." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:21:07 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/09 22:13:46 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/09 22:27:45 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(void)
 	delete i;
 	delete j;
 */
+	//Animal animal;
+	
 	Animal *animals[TOTAL_ANIMALS];
 	size_t	i;
 
@@ -78,7 +80,7 @@ int	main(void)
 		std::cout << "Idea 0 B" << dogB->rememberIdea(0) << std::endl;
 		delete dogB;
 	}
-/*
+
 	std::cout << "-------------------------------------" << std::endl;
 	{
 		std::cout << "Check deep copy of Dog class using assignment operator overload:" << std::endl;
@@ -89,18 +91,8 @@ int	main(void)
 		delete dogA;
 		delete dogB;
 	}
-*/
 
-	std::cout << "-------------------------------------" << std::endl;
-	{
-		std::cout << "Check deep copy of Dog class using assignment operator overload:" << std::endl;
-		Dog *dogC = new Dog;
-		Dog *dogD = new Dog;
 
-		*dogC = *dogD;
-		delete dogC;
-		delete dogD;
-	}
 
 	return (0);
 }
