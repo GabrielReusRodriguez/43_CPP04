@@ -1,16 +1,19 @@
 NAME= ex03
 
 OBJ_DIR = ./obj
-CPP_FLAGS = -Wall -Werror -WExtra -g3 -fsanitize=address -MMD -MP -std=c++98
+CPP_FLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address -MMD -MP -std=c++98
 
-SRC_FILES= main
+SRC_FILES= 	main			\
+			AMateria		\
+			Character		\
+			Cure			\
+			Ice				\
+			MateriaSource	\
 
 
 SRC = $(addsuffix .cpp, ${SRC_FILES})
 OBJ = $(addprefix ${OBJ_DIR}/, $(addsuffix .o , ${SRC_FILES}))
 DEP = $(addprefix ${OBJ_DIR}/, $(addsuffix .d , ${SRC_FILES}))
-
--include ${DEP}
 
 all : ${NAME}
 
@@ -29,5 +32,7 @@ fclean : clean
 	rm -f ${NAME}
 
 re: fclean all
+
+-include ${DEP}
 
 .PHONY : all clean fclean re

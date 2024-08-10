@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 22:49:13 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/10 21:33:17 by gabriel          ###   ########.fr       */
+/*   Created: 2024/08/10 19:11:20 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/10 21:21:25 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#include <string>
 
-# include "AMateria.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-# define TYPE_CURE "cure"
-
-class Cure : public AMateria
+AMateria::AMateria(std::string const &type) : _type(type)
 {
-	public:
-		Cure(void);
-		Cure(Cure const &copy);
-		~Cure(void);
-		void	operator=(Cure const &cure);
+}
 
-		AMateria *clone(void) const;
-		void	use(ICharacter& target);
-};
+AMateria::~AMateria(void)
+{
+	
+}
 
-#endif
+std::string const & AMateria::getType(void) const
+{
+	return (this->_type);
+}
+
+void	AMateria::use(ICharacter &target)
+{
+	(void)target;	
+}
+

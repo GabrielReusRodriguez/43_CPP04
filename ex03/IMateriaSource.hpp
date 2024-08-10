@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 22:44:53 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/09 22:46:04 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/10 19:35:34 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <string>
 
 # include "AMateria.hpp"
+
+/* Factory Pattern of all the life*/
 
 class IMateriaSource
 {

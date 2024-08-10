@@ -6,13 +6,21 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 22:46:31 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/09 22:47:01 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/10 21:22:54 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "IMateriaSource.hpp"
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
+
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -28,5 +36,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+
 	return 0;
 }

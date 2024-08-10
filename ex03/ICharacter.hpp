@@ -6,16 +6,18 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 22:43:06 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/09 22:43:55 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/10 19:32:51 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPPP
+#ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
 # include <string>
 
-#include "AMateria.hpp"
+//#include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
