@@ -3,17 +3,16 @@ NAME= ex03
 OBJ_DIR = ./obj
 CPP_FLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address -MMD -MP -std=c++98
 
-SRC_FILES= 	main			\
-			AMateria		\
-			Character		\
-			Cure			\
-			Ice				\
-			MateriaSource	\
+SRC= 	main.cpp			\
+		AMateria.cpp		\
+		Character.cpp		\
+		Cure.cpp			\
+		Ice.cpp				\
+		MateriaSource.cpp
 
 
-SRC = $(addsuffix .cpp, ${SRC_FILES})
-OBJ = $(addprefix ${OBJ_DIR}/, $(addsuffix .o , ${SRC_FILES}))
-DEP = $(addprefix ${OBJ_DIR}/, $(addsuffix .d , ${SRC_FILES}))
+OBJ=	$(patsubst %.cpp, ${OBJ_DIR}/%.o, ${SRC})
+DEP=	$(patsubst %.cpp, ${OBJ_DIR}/%.d, ${SRC})
 
 all : ${NAME}
 
@@ -25,11 +24,11 @@ ${OBJ_DIR}/%.o : %.cpp Makefile
 	c++ ${CPP_FLAGS} -c $< -o $@
 
 clean:
-	rm -f ${OBJ_DIR}/*.o
-	rm -f ${OBJ_DIR}/*.d
+	rm -rf ${OBJ_DIR}
+	rm -rf ${OBJ_DIR}
 
 fclean : clean 
-	rm -f ${NAME}
+	rm -rf ${NAME}
 
 re: fclean all
 

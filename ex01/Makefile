@@ -4,15 +4,14 @@ CPP_FLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98 -g1 -fsanitize=address
 
 OBJ_DIR = ./obj
 
-SRC_FILES = main	\
-			Animal	\
-			Cat		\
-			Dog		\
-			Brain
+SRC = main.cpp	\
+			Animal.cpp	\
+			Cat.cpp		\
+			Dog.cpp		\
+			Brain.cpp
 
-SRC = $(addsuffix .cpp, ${SRC_FILES})
-OBJ = $(addprefix ${OBJ_DIR}/, $(addsuffix .o, ${SRC_FILES}))
-DEP = $(addprefix ${OBJ_DIR}/, $(addsuffix .d, ${SRC_FILES}))
+OBJ=	$(patsubst %.cpp, ${OBJ_DIR}/%.o, ${SRC})
+DEP=	$(patsubst %.cpp, ${OBJ_DIR}/%.d, ${SRC})
 
 all: ${NAME}
 
@@ -24,11 +23,11 @@ ${OBJ_DIR}/%.o : %.cpp Makefile
 	c++ ${CPP_FLAGS} -c $< -o $@
 
 clean:
-	rm -f ${OBJ_DIR}/*.o
-	rm -f ${OBJ_DIR}/*.d
+	rm -rf ${OBJ_DIR}
+	rm -rf ${OBJ_DIR}
 
 fclean: clean
-	rm -f ${NAME}
+	rm -rf ${NAME}
 
 re: fclean all
 

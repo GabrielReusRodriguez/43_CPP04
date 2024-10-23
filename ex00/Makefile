@@ -1,38 +1,37 @@
-NAME = ex00
+NAME=	ex00
 
-CPP_FLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
+CPP_FLAGS=	-Wall -Wextra -Werror -MMD -MP -std=c++98
 
-OBJ_DIR = ./obj
+OBJ_DIR=	./obj
 
-SRC_FILES = main	\
-			Animal	\
-			Cat		\
-			Dog		\
-			WrongAnimal	\
-			WrongCat
+SRC=	main.cpp	\
+		Animal.cpp	\
+		Cat.cpp		\
+		Dog.cpp		\
+		WrongAnimal.cpp	\
+		WrongCat.cpp
 
-SRC = $(addsuffix .cpp, ${SRC_FILES})
-OBJ = $(addprefix ${OBJ_DIR}/, $(addsuffix .o, ${SRC_FILES}))
-DEP = $(addprefix ${OBJ_DIR}/, $(addsuffix .d, ${SRC_FILES}))
+OBJ=	$(patsubst %.cpp, ${OBJ_DIR}/%.o, ${SRC})
+DEP=	$(patsubst %.cpp, ${OBJ_DIR}/%.d, ${SRC})
 
-all: ${NAME}
+all:	${NAME}
 
-${NAME}: ${OBJ}
+${NAME}:	${OBJ}
 	c++ ${CPP_FLAGS} ${OBJ} -o ${NAME}
 
-${OBJ_DIR}/%.o : %.cpp Makefile
+${OBJ_DIR}/%.o:	%.cpp Makefile
 	@mkdir -p ${OBJ_DIR}
 	c++ ${CPP_FLAGS} -c $< -o $@
 
 clean:
-	rm -f ${OBJ_DIR}/*.o
-	rm -f ${OBJ_DIR}/*.d
+	rm -rf ${OBJ_DIR}
+	rm -rf ${OBJ_DIR}
 
-fclean: clean
-	rm -f ${NAME}
+fclean:	clean
+	rm -rf ${NAME}
 
-re: fclean all
+re:	fclean all
 
 -include ${DEP}
 
-.PHONY: all re clean fclean
+.PHONY:	all re clean fclean
