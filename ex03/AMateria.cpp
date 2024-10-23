@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:11:20 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/10 21:21:25 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/10 21:49:22 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void	AMateria::use(ICharacter &target)
 {
 	(void)target;	
 }
-

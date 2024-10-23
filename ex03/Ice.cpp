@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:54:33 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/10 20:01:22 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/10/23 23:43:22 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ Ice::~Ice(void)
 
 void	Ice::operator=(Ice const &ice)
 {
-	(void)ice;
+	if (this != &ice)
+	{
+		std::cout << "Assigning an ice to another ice doesn't make sense." << std::endl;
+	}
 }
 
 AMateria	*Ice::clone(void) const

@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:40:39 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/06 23:13:38 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/10/23 22:54:42 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ WrongCat::~WrongCat(void)
 
 void	WrongCat::operator=(WrongCat const &cat)
 {
-	this->_type = cat._type;
-	std::cout << "WrongCat Operator Equal called." << std::endl;
+	if (this != &cat)
+	{
+		this->_type = cat._type;
+		std::cout << "WrongCat Operator Equal called." << std::endl;
+	}
 }
 
 void WrongCat::makeSound(void) const

@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:36:41 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/06 23:03:35 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/10/23 22:53:42 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ Dog::~Dog(void)
 
 void	Dog::operator=(Dog const &dog)
 {
-	this->_type = dog._type;
-	std::cout << "Dog Operator Equal called." << std::endl;
+	if (this != &dog)
+	{
+		this->_type = dog._type;
+		std::cout << "Dog Operator Equal called." << std::endl;
+	}
 }
 
 void Dog::makeSound(void) const

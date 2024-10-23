@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 20:12:43 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/08 21:30:47 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/10/23 23:56:21 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,26 @@ void Brain::operator=(Brain const &brain)
 {
 	size_t	i;
 
-	i = 0;
-	while (i < BRAIN_NUMBER_IDEAS)
+	if (this != &brain)
 	{
-		this->_ideas[i] = brain._ideas[i];
-		i++;
+		i = 0;
+		while (i < BRAIN_NUMBER_IDEAS)
+		{
+			this->_ideas[i] = brain._ideas[i];
+			i++;
+		}
+		this->_num_ideas = brain._num_ideas;
+		std::cout << "Brain operator equal called." << std::endl;
 	}
-	this->_num_ideas = brain._num_ideas;
-	std::cout << "Brain operator equal called." << std::endl;
 }
 
 void	Brain::appendIdea(std::string idea)
 {
 	if (this->_num_ideas >= BRAIN_NUMBER_IDEAS)
-		this->_num_ideas = 0;
+	{
+		std::cout << "Can't set idea , brain is full! " << std::endl;
+		return	;
+	}
 	this->_ideas[this->_num_ideas] = idea;
 	this->_num_ideas++;
 	std::cout << "Brain added Idea." << std::endl;

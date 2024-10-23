@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 22:31:52 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/06 23:06:40 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/10/23 23:04:43 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ Animal::Animal(Animal const &copy)
 
 void	Animal::operator=(Animal const &animal)
 {
-	this->_type = animal._type;
-	std::cout << "Animal operator Equal called." << std::endl;
+	if (this != &animal)
+	{
+		this->_type = animal._type;
+		std::cout << "Animal operator Equal called." << std::endl;
+	}
 }
 
 void Animal::makeSound(void) const

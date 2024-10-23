@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 20:29:23 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/10 21:20:56 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/10/23 23:31:48 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,21 @@ void	Character::operator=(Character const &ch)
 {
 	size_t	i;
 
-	i = 0;
-	while (i < CHARACTER_MAX_MATERIAS)
+	if (this != &ch)
 	{
-		if (this->_inventory[i] != NULL)
-			delete this->_inventory[i];
-		if (ch._inventory[i] != NULL)
-			this->_inventory[i] = ch._inventory[i]->clone();
-		else
-			this->_inventory[i] = NULL;
+		i = 0;
+		while (i < CHARACTER_MAX_MATERIAS)
+		{
+			if (this->_inventory[i] != NULL)
+				delete this->_inventory[i];
+			if (ch._inventory[i] != NULL)
+				this->_inventory[i] = ch._inventory[i]->clone();
+			else
+				this->_inventory[i] = NULL;
+		}
+		this->_name = ch._name;
+		this->_index = ch._index;
 	}
-	this->_name = ch._name;
-	this->_index = ch._index;
 }
 
 bool	Character::isInventoryFull(void)

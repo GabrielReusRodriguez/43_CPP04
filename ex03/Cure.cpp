@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:45:37 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/10 19:54:15 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/10/23 23:42:43 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Cure::Cure(void) : AMateria(TYPE_CURE)
 
 Cure::Cure(Cure const &copy) : AMateria(TYPE_CURE)
 {
-	(void) copy;
+		(void) copy;
 }
 
 Cure::~Cure(void)
@@ -41,7 +41,10 @@ Cure::~Cure(void)
 
 void	Cure::operator=(Cure const &cure)
 {
-	(void) cure;
+	if (this != &cure)
+	{
+		std::cout << "Assigning a cure to another cure doesn't make sense." << std::endl;
+	}
 }
 
 AMateria	*Cure::clone(void) const
